@@ -4,32 +4,53 @@ package model;
 
 public class Produto {
     
-    private int codigo_produto;
-    private String descricao_produto;
-    private double preco_produto;
+    private int codigo_ocorrencia;
+    private String descricao_ocorrencia;
+    private String equipamento_ocorrencia;
+    private String data_ocorrencia;
+    private String profissional_ocorrencia;
 
-    public int getCodigo_produto() {
-        return codigo_produto;
+    public int getCodigo_ocorrencia() {
+        return codigo_ocorrencia;
     }
 
-    public void setCodigo_produto(int codigo_produto) {
-        this.codigo_produto = codigo_produto;
+    public void setCodigo_ocorrencia(int codigo_ocorrencia) {
+        this.codigo_ocorrencia = codigo_ocorrencia;
     }
 
-    public String getDescricao_produto() {
-        return descricao_produto;
+    public String getDescricao_ocorrencia() {
+        return descricao_ocorrencia;
     }
 
-    public void setDescricao_produto(String descricao_produto) {
-        this.descricao_produto = descricao_produto;
+    public void setDescricao_ocorrencia(String descricao_ocorrencia) {
+        this.descricao_ocorrencia = descricao_ocorrencia;
     }
 
-    public double getPreco_produto() {
-        return preco_produto;
+    public String getEquipamento_ocorrencia() {
+        return equipamento_ocorrencia;
     }
 
-    public void setPreco_produto(double preco_produto) {
-        this.preco_produto = preco_produto;
+    public void setEquipamento_ocorrencia(String equipamento_ocorrencia) {
+        this.equipamento_ocorrencia = equipamento_ocorrencia;
     }
+
+    public String getData_ocorrencia() {
+        return data_ocorrencia;
+    }
+
+    public void setData_ocorrencia(String data_ocorrencia) {
+        this.data_ocorrencia = data_ocorrencia;
+    }
+
+    public String getProfissional_ocorrencia() {
+        return profissional_ocorrencia;
+    }
+
+    public void setProfissional_ocorrencia(String profissional_ocorrencia) {
+        this.profissional_ocorrencia = profissional_ocorrencia;
+    }
+
+    
+  
     
 }

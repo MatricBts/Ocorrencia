@@ -21,11 +21,13 @@ public class ProdutoDAO {
     }
     
     public void inserir(Produto produto){
-        String sql = "INSERT INTO produto (descricao_produto, preco_produto) VALUES (?,?)" ;
+        String sql = "INSERT INTO produto (descricao_ocorrencia, equipamento_ocorrencia, data_ocorrencia, profissional_ocorrencia) VALUES (?,?,?,?)" ;
         try{
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, produto.getDescricao_produto());
-            stmt.setDouble(2, produto.getPreco_produto());
+            stmt.setString(1, produto.getDescricao_ocorrencia());
+            stmt.setString(2, produto.getEquipamento_ocorrencia());
+            stmt.setString(3, produto.getData_ocorrencia());
+            stmt.setString(4, produto.getProfissional_ocorrencia());
             stmt.execute();
             stmt.close();
         }catch (Exception erro){
@@ -34,12 +36,13 @@ public class ProdutoDAO {
     }
     
     public void alterar(Produto produto){
-        String sql = "UPDATE produto SET descricao_produto, preco_produto = ? WHERE codigo_produto = ?" ;
+        String sql = "UPDATE produto SET descricao_produto, preco_produto, data_ocorrencia,proficional_ocorrencia  = ? WHERE codigo_produto = ?" ;
         try{
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, produto.getDescricao_produto());
-            stmt.setDouble(2, produto.getPreco_produto());
-            stmt.setInt(3, produto.getCodigo_produto());
+            stmt.setString(1, produto.getDescricao_ocorrencia());
+            stmt.setString(2, produto.getEquipamento_ocorrencia());
+            stmt.setInt(3, produto.getCodigo_ocorrencia());
+           
             stmt.execute();
             stmt.close();
         }catch (Exception erro){
@@ -48,7 +51,7 @@ public class ProdutoDAO {
     }
     
     public void excluir(int valor){
-        String sql = "DELETE FROM produto WHERE codigo_produto = "+valor ;
+        String sql = "DELETE FROM produto WHERE codigo_ocorrencia = "+valor ;
         try{
             st = conn.createStatement();
             st.execute(sql);
@@ -65,9 +68,11 @@ public class ProdutoDAO {
             rs = st.executeQuery(sql);
             while(rs.next()){
                 Produto produto = new Produto();
-                produto.setCodigo_produto(rs.getInt("codigo_produto"));
-                produto.setDescricao_produto(rs.getString("descricao_produto"));
-                produto.setPreco_produto(rs.getDouble("preco_produto"));
+                produto.setCodigo_ocorrencia(rs.getInt("codigo_ocorrencia"));
+                produto.setDescricao_ocorrencia(rs.getString("descricao_ocorrencia"));
+                produto.setEquipamento_ocorrencia(rs.getString("equipamento_ocorrencia"));
+                produto.setData_ocorrencia(rs.getString("data_ocorrencia"));
+                produto.setProfissional_ocorrencia(rs.getString("profissional_ocorrencia"));
                 lista.add(produto);
         }
             
@@ -78,15 +83,17 @@ public class ProdutoDAO {
     }
     
     public ArrayList<Produto> listarTodosDescricao(String valor){
-        String sql = "SELECT * FROM produto WHERE descricao_produto LIKE '%"+valor+"%' ";
+        String sql = "SELECT * FROM produto WHERE descricao_ocorrencia LIKE '%"+valor+"%' ";
         try{
             st = conn.createStatement();
             rs = st.executeQuery(sql);
             while(rs.next()){
                 Produto produto = new Produto();
-                produto.setCodigo_produto(rs.getInt("codigo_produto"));
-                produto.setDescricao_produto(rs.getString("descricao_produto"));
-                produto.setPreco_produto(rs.getDouble("preco_produto"));
+                produto.setCodigo_ocorrencia(rs.getInt("codigo_produto"));
+                produto.setDescricao_ocorrencia(rs.getString("descricao_ocorrencia"));
+                produto.setEquipamento_ocorrencia(rs.getString("equipamento_ocorrencia"));
+                produto.setData_ocorrencia(rs.getString("data_ocorrencia"));
+                produto.setProfissional_ocorrencia(rs.getString("profissional_ocorrencia"));
                 lista.add(produto);
         }
             
