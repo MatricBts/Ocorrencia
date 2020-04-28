@@ -1,0 +1,12 @@
+create table produto(
+codigo_ocorrencia int(11) auto_increment,
+descricao_ocorrencia varchar (100) not null,
+equipamento_ocorrencia varchar (20),
+data_ocorrencia varchar(10),
+profissional_ocorrencia varchar (18),
+
+primary key(codigo_ocorrencia)
+);
+
+select * from produto;
+© 2020 GitHub, Inc.
