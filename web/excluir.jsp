@@ -18,8 +18,11 @@
             <label>Codigo:</label><br>
             <input type="text" name="codigo" value="<%=request.getParameter("codigo")%>" /><br>
             
-            <label>Descrição:</label><br>
+            <label>Ocorrencia:</label><br>
             <input type="text" name="descricao" value="<%=request.getParameter("descricao")%>"/><br>
+            
+            <label>Equipamento:</label><br>
+            <input type="text" name="equipamento" value="<%=request.getParameter("equipamento")%>"/><br>
             
             <button type="submit">OK</button>
             <a href="index.jsp"> Voltar </a>

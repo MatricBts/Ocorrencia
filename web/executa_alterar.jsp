@@ -13,12 +13,13 @@
             try{
                 Produto pro = new Produto();
                 ProdutoDAO prd = new ProdutoDAO();
-                if(request.getParameter("descricao").equals("") || request.getParameter("preco").equals("")){
+                if(request.getParameter("descricao").equals("") || request.getParameter("equipamento").equals("")){
                     response.sendRedirect("index.jsp");
             }else{
-                pro.setDescricao_produto(request.getParameter("descricao"));       
-                pro.setPreco_produto(Double.parseDouble(request.getParameter("preco")));       
-                pro.setCodigo_produto(Integer.parseInt(request.getParameter("codigo")));       
+                pro.setDescricao_ocorrencia(request.getParameter("descricao"));       
+                pro.setEquipamento_ocorrencia(request.getParameter("equipamento"));       
+                pro.setCodigo_ocorrencia(Integer.parseInt(request.getParameter("codigo")));       
+                pro.setData_ocorrencia(request.getParameter("data"));       
                 prd.alterar(pro);
                 response.sendRedirect("index.jsp");
                 }

@@ -13,7 +13,7 @@
     </head>
     <body>
         <form action="index.jsp" method="post" >          
-            <input type="text" name="descricao" placeholder="Pesquisar">  
+            <input name="data" type="date" ><br><br>
             <button type="submit">Buscar</button>
         </form>
         <h1>Ocorrências</h1>
@@ -32,7 +32,7 @@
                 out.print("<th>Cod</th><th >Ocorrência</th><th>Equipamento</th><th>Data</th><th>Profissional</th><th>Alterar</th><th>Excluir</th>");
                 out.print("</tr>");
                 ProdutoDAO prd = new ProdutoDAO();
-                if(request.getParameter("") == "" || request.getParameter("descricao") == null ){ // se for em branco aparecerá a tabela completa
+                if(request.getParameter("") == "" || request.getParameter("data") == "" ){ // se for em branco aparecerá a tabela completa
                     ArrayList<Produto> lista = prd.listarTodos();
                     for(int num = 0; num < lista.size(); num++){
                         out.print("<tr>");
@@ -41,12 +41,12 @@
                         out.print("<td>"+lista.get(num).getEquipamento_ocorrencia()+"</td>");
                         out.print("<td>"+lista.get(num).getData_ocorrencia()+"</td>");
                         out.print("<td>"+lista.get(num).getProfissional_ocorrencia()+"</td>");
-                        out.print("<td><a href='alterar.jsp?codigo="+lista.get(num).getCodigo_ocorrencia()+"&descricao="+lista.get(num).getDescricao_ocorrencia()+"&preco="+lista.get(num).getEquipamento_ocorrencia()+" '>CLIQUE</a></td>");
-                        out.print("<td><a href='excluir.jsp?codigo="+lista.get(num).getCodigo_ocorrencia()+"&descricao="+lista.get(num).getDescricao_ocorrencia()+" '>CLIQUE</a></td>");
+                        out.print("<td><a href='alterar.jsp?codigo="+lista.get(num).getCodigo_ocorrencia()+"&descricao="+lista.get(num).getDescricao_ocorrencia()+"&equipamento="+lista.get(num).getEquipamento_ocorrencia()+"&data="+lista.get(num).getData_ocorrencia()+" '>CLIQUE</a></td>"); /// passa os paramentros para a tela de alterar
+                        out.print("<td><a href='excluir.jsp?codigo="+lista.get(num).getCodigo_ocorrencia()+"&descricao="+lista.get(num).getDescricao_ocorrencia()+"&equipamento="+lista.get(num).getEquipamento_ocorrencia()+" '>CLIQUE</a></td>");
                         out.print("<tr>");
                     }
                 } else {
-                    ArrayList<Produto> lista = prd.listarTodosDescricao(request.getParameter("descricao"));
+                    ArrayList<Produto> lista = prd.listarTodosDescricao(request.getParameter("data"));
                     for(int num = 0; num < lista.size(); num++){
                     out.print("<tr>");
                     out.print("<td>"+lista.get(num).getCodigo_ocorrencia()+"</td>");

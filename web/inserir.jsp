@@ -14,16 +14,17 @@
             <!--<label>Codigo:</label><br>
             <input type="text" name="codigo" /><br> -->
             
+            
+            
             <textarea rows="5" cols="20" name="descricao" placeholder="Ocorrencia" maxlength="100" ></textarea><br>
             
            
             <input type="text" name="equipamento" placeholder="Equipamentos" maxlength="20" /><br>
             
-           
-            <input type="text" name="data" placeholder="Data" maxlength="10"/><br>
-            
             
             <input type="text" name="profissional" placeholder="Profissional" maxlength="18"/><br><br>
+            
+            <input name="data" type="date" ><br><br>
             
             <button type="submit">OK</button><br>
             <a href="index.jsp" style="text-decoration:none">voltar</a>

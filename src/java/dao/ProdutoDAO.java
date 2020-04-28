@@ -36,12 +36,13 @@ public class ProdutoDAO {
     }
     
     public void alterar(Produto produto){
-        String sql = "UPDATE produto SET descricao_produto, preco_produto, data_ocorrencia,proficional_ocorrencia  = ? WHERE codigo_produto = ?" ;
+        String sql = "UPDATE produto SET descricao_produto, preco_produto, data_ocorrencia,proficional_ocorrencia,data_ocorrencia  = ? WHERE codigo_produto = ?" ;
         try{
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, produto.getDescricao_ocorrencia());
             stmt.setString(2, produto.getEquipamento_ocorrencia());
             stmt.setInt(3, produto.getCodigo_ocorrencia());
+            stmt.setString(4, produto.getData_ocorrencia());
            
             stmt.execute();
             stmt.close();
@@ -83,13 +84,13 @@ public class ProdutoDAO {
     }
     
     public ArrayList<Produto> listarTodosDescricao(String valor){
-        String sql = "SELECT * FROM produto WHERE descricao_ocorrencia LIKE '%"+valor+"%' ";
+        String sql = "SELECT * FROM produto WHERE data_ocorrencia LIKE '%"+valor+"%' ";
         try{
             st = conn.createStatement();
             rs = st.executeQuery(sql);
             while(rs.next()){
                 Produto produto = new Produto();
-                produto.setCodigo_ocorrencia(rs.getInt("codigo_produto"));
+                produto.setCodigo_ocorrencia(rs.getInt("codigo_ocorrencia"));
                 produto.setDescricao_ocorrencia(rs.getString("descricao_ocorrencia"));
                 produto.setEquipamento_ocorrencia(rs.getString("equipamento_ocorrencia"));
                 produto.setData_ocorrencia(rs.getString("data_ocorrencia"));

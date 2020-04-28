@@ -20,8 +20,11 @@
             <label>Descrição:</label><br>
             <input type="text" name="descricao" value="<%=request.getParameter("descricao")%>"/><br>
             
-            <label>Preço:</label><br>
-            <input type="text" name="preco" value="<%=request.getParameter("preco")%>" /><br>
+            <label>Equipamento:</label><br>
+            <input type="text" name="equipamento" value="<%=request.getParameter("equipamento")%>"/><br>
+            
+            <label>Data:</label><br>
+            <input name="data" type="date" value="<%=request.getParameter("data")%>"/><br>
             
             <button type="submit">OK</button>
             <a href="index.jsp"> Voltar </a>
